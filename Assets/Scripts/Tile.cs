@@ -146,11 +146,19 @@ public class Tile : MonoBehaviour
         //perfect
         else
         {
+            // Perfect placement
             if (moveX)
                 transform.Translate(-distance, 0, 0);
             else
                 transform.Translate(0, 0, -distance);
-
+            
+            // Spawn perfect effect
+            if (TileSpawner.Instance != null)
+            {
+                // Offset the effect position slightly above the tile to make it visible
+                Vector3 effectPosition = transform.position + new Vector3(0, 1.5f, 0);
+                TileSpawner.Instance.SpawnPerfectEffect(effectPosition);
+            }
         }
 
         Destroy(this);

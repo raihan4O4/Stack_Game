@@ -12,6 +12,7 @@ public class TileSpawner : MonoBehaviour
     [SerializeField] private GameObject bottomTile;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject camera;
+    [SerializeField] private List<GameObject> perfectEffect;
 
     public TMP_Text Score;
     private List<GameObject> stack;
@@ -58,7 +59,7 @@ public class TileSpawner : MonoBehaviour
 
         stack.Add(bottomTile);
         stack[0].GetComponent<Renderer>().material.color = colorSpectrum[0];
-        SpawnTile();
+        SpawnTile();    
     }
 
     private void Update()
@@ -160,5 +161,13 @@ public class TileSpawner : MonoBehaviour
             startButton.SetActive(false);
             hasGameStarted = true;
         }
+    }
+
+    public void SpawnPerfectEffect(Vector3 position)
+    {
+        if (perfectEffect.Count == 0) return;
+        int randomIndex = Random.Range(0, perfectEffect.Count);
+        GameObject effect = Instantiate(perfectEffect[randomIndex], position, Quaternion.identity);
+        Destroy(effect, 4f);
     }
 }

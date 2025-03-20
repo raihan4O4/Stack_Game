@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slicedTile: {fileID: 6081245647279511534, guid: e41821480e1517e439fa95c845ada28a, type: 3}
+  moveX: 0
