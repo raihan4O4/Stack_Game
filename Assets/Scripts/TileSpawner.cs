@@ -10,7 +10,8 @@ public class TileSpawner : MonoBehaviour
 
     [SerializeField] private GameObject tile;
     [SerializeField] private GameObject bottomTile;
-    [SerializeField] private GameObject startButton;
+    [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject StartPanel;
     [SerializeField] private GameObject camera;
     [SerializeField] private List<GameObject> perfectEffect;
 
@@ -129,7 +130,7 @@ public class TileSpawner : MonoBehaviour
 
     public void GameOver()
     {
-        startButton.SetActive(true);
+        GameOverPanel.SetActive(true);
         hasGameFinished = true;
         StartCoroutine(EndCamera());
     }
@@ -158,7 +159,8 @@ public class TileSpawner : MonoBehaviour
         }
         else
         {
-            startButton.SetActive(false);
+
+            StartPanel.SetActive(false);
             hasGameStarted = true;
         }
     }

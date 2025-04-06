@@ -55,7 +55,7 @@ public class SkyboxRotator : MonoBehaviour
     {
         int currentScore = int.Parse(TileSpawner.Instance.Score.text);
         
-        for (int i = 0; i < Mathf.Min(skyboxColors.Length, transitionScores.Length); i++)
+        for (int i = 1; i < Mathf.Min(skyboxColors.Length, transitionScores.Length); i++)
         {
             if (currentScore >= transitionScores[i] && i > currentTransitionIndex)
             {
